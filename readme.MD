@@ -8,15 +8,14 @@ Convert expenses into different currencies using APIs
 Persist data (no backend needed initially)
 
 ## 🧩 Core Features (Phase-wise)
-Phase 1: Basic Expense Tracking
+### Phase 1: Basic Expense Tracking
 
-Add transaction (amount, category, date, type)
-
+Add data for expenditure of cuurent month
 View transaction list
-
 Show balance, total income, total expense
 
 ## 📌 Data Model
+save it in mongodb
 ```
 {
   id: "uuid",
@@ -31,20 +30,19 @@ Show balance, total income, total expense
 
 ## Phase 2: Charts & Analytics
 
-Monthly expense breakdown
+Monthly expense breakdown - historical , Overspent underspent on each category
 Category-wise pie chart
 Income vs Expense bar chart
 
 ## 📊 Charts
 
 Chart.js (no framework)
-
 Data computed dynamically from transactions
 
-Phase 3: Currency Conversion (API Usage)
+
+## Phase 3: Currency Conversion (API Usage)
 
 Convert all transactions to a base currency
-
 Show totals in selected currency (INR/USD/EUR)
 
 ## 🌐 API
@@ -54,8 +52,7 @@ FreeCurrencyAPI
 
 ## Phase 4: Persistence
 
-Save data in localStorage or IndexedDB
-Load data on refresh
+Save data in localStorage and mongodb
 
 # 🔌 APIs Used
 1️⃣ Currency Exchange API
@@ -74,16 +71,9 @@ Response:
   }
 }
 
-🔄 Async Flow (Important Interview Topic)
+## 🔄 Async Flow (Important Interview Topic)
 async function convertAmount(amount, from, to) {
-  try {
-    const res = await fetch(`${API_URL}/${from}`);
-    const data = await res.json();
-    return amount * data.rates[to];
-  } catch (err) {
-    console.error("Currency conversion failed", err);
-    return amount;
-  }
+  
 }
 
 
