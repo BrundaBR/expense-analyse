@@ -15,7 +15,7 @@ View transaction list
 Show balance, total income, total expense
 
 ## 📌 Data Model
-save it in mongodb
+save it in Firestore
 ```
 {
   id: "uuid",
