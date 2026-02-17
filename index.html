@@ -13,13 +13,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+    <nav class="navbar">
+
+
+    </nav>
     <div class="main">
         <h1 class="heading">Fianance Tracker</h1>
+        <div class="form-input">
+            <form class="expense-track" method="">
+                <label for="category">Category</label>
+                <input type="text" name="category" id="category">
+                <label for="amount">Amount</label>
+                <input type="number" name="amount" id="amount">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date">   
+                <button class="submit-form" type="submit" onsubmit="">Add Expense</button>
+            </form>
+        </div>
     </div>
-    <script src="/js/index.js" async defer></script>
+    <script type="module"  src="/js/index.js"></script>
     <script type="module" src="./db/test_db.js"></script>
 
 </body>
