@@ -5,6 +5,5 @@ console.log("WELCOME TO JS");
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".expense-track");
-
     form.addEventListener("submit", storeData);
 });
