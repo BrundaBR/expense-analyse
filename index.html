@@ -18,21 +18,35 @@
 
 <body>
     <nav class="navbar">
-
-
+        <div class="logo">
+            <h1>Expense Analysis</h1>
+        </div>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Add category</a></li>
+        </ul>
     </nav>
     <div class="main">
-        <h1 class="heading">Fianance Tracker</h1>
         <div class="form-input">
+            <h1>Current Spends</h1>
             <form class="expense-track" method="">
                 <label for="category">Category</label>
                 <input type="text" name="category" id="category">
                 <label for="amount">Amount</label>
                 <input type="number" name="amount" id="amount">
+                <label for="comment">Comment</label>
+                <input type="text" name="comment" id="comment">
                 <label for="date">Date</label>
                 <input type="date" name="date" id="date">   
                 <button class="submit-form" type="submit" onsubmit="">Add Expense</button>
             </form>
+        </div>
+        <div class="analytics">
+            <div class="chart-container">
+                <h1>Analytics</h1>
+                <canvas id="expense-chart"></canvas>
+            </div>
+
         </div>
     </div>
     <script type="module"  src="/js/index.js"></script>
