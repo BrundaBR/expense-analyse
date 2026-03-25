@@ -42,10 +42,10 @@
                     </thead>
                     <tbody id="expense-table-body">
                         <tr>
-                            <td><input type="text" name="category"></td>
-                            <td><input type="number" name="amount"></td>
-                            <td><input type="text" name="comment"></td>
-                            <td><input type="date" name="date"></td>
+                            <td><input type="text" name="category" id="category"></td>
+                            <td><input type="number" name="amount" id="amount"></td>
+                            <td><input type="text" name="comment" id="comment"></td>
+                            <td><input type="date" name="date" id="date"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -54,18 +54,19 @@
             </form>
 
             <button class="add-row" type="button">Add Row</button>
-
         </div>
         <div class="analytics">
             <div class="chart-container">
                 <h1>Analytics</h1>
+                <h3 id = "total-amount">Total Amount spent</h3>
                 <canvas id="expense-chart"></canvas>
             </div>
-
         </div>
     </div>
     <script type="module" src="/js/index.js"></script>
     <script type="module" src="./db/test_db.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </body>
 
