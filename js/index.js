@@ -1,4 +1,5 @@
 import { storeData } from "../db/db_store.js";
+import { current_month_expenses, current_spent_category} from "../db/get_data.js";
 
 console.log("WELCOME TO JS");
 
@@ -26,3 +27,32 @@ function addRow(event){
     table.appendChild(newRow);
 
 }
+
+const ctx = document.getElementById('expense-chart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+const total_amount = document.getElementById("total-amount");
+const total = await current_month_expenses();
+total_amount.textContent ="Total Spent this month:"+ " "+total;
+
+const category_expenses = await current_spent_category();
+console.log("Category expenses:", category_expenses);
