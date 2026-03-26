@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", storeData);
      const addBtn = document.querySelector(".add-row");
     addBtn.addEventListener("click", addRow);
+    const monthSelect = document.getElementById("month-select");
+    monthSelect.addEventListener("change", handleMonthChange);
 });
 
 function addRow(event){
@@ -27,32 +29,37 @@ function addRow(event){
     table.appendChild(newRow);
 
 }
+async function handleMonthChange(event){
+  let categroy_spend_chart = null;
+  const user_selected_month = document.getElementById("month-select").value;
+  const category_expenses = await current_spent_category(Number(user_selected_month));
 
-const ctx = document.getElementById('expense-chart');
+  const ctx = document.getElementById('expense-chart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    if (categroy_spend_chart !== null) {
+    categroy_spend_chart.destroy();
+  }
+  categroy_spend_chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(category_expenses),
+        datasets: [{
+          label: '# of Votes',
+          data: Object.values(category_expenses),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
-    }
-  });
+    });
 
-
+}
 const total_amount = document.getElementById("total-amount");
 const total = await current_month_expenses();
 total_amount.textContent ="Total Spent this month:"+ " "+total;
 
-const category_expenses = await current_spent_category();
-console.log("Category expenses:", category_expenses);
